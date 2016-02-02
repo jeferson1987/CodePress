@@ -27,7 +27,7 @@ class AdminCategoriesTest extends \TestCase
         Category::create(['name' => 'Category 2', 'active' => true ]);
         Category::create(['name' => 'Category 3', 'active' => true ]);
 
-
+// o teste não passa porque não lista em tela as categorias criadas, não teve a explicação de como fazer isso.
         $this->visit('/admin/categories')
             ->see('Category 1')
             ->see('Category 2')
