@@ -13,7 +13,8 @@ class AdminCategoriesController extends Controller
 {
     public function index()
     {
-        return view('codecategory::index');
+        $categories = \CodePress\CodeCategory\Models\Category::all();
+        return view('codecategory::index', compact('categories'));
     }
 
 }

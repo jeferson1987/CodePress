@@ -14,7 +14,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AdminCategoriesTest extends \TestCase
 {
-    use DatabaseTransactions
+    use DatabaseTransactions;
+    
     public function test_can_visit_admin_categories_page()
     {
         $this->visit('/admin/categories')
