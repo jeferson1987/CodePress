@@ -6,6 +6,13 @@
  * Time: 19:37
  */
 
-Route::group(['prefix' => 'admin/categories', 'namespace' => 'CodePress\CodeCategory\Controllers'], function(){
-   Route::get('','AdminCategoriesController@index');
+/*
+ *['middleware' => 'web'] cria o csrf e outros grupos de mildwere veio no 5.2
+ */
+Route::group(['prefix' => 'admin/categories', 'as' => 'admin.categories.',
+               'namespace' => 'CodePress\CodeCategory\Controllers','middleware' => 'web'], function(){
+   Route::get('',['uses'=> 'AdminCategoriesController@index', 'as' => 'index']);
+   Route::get('/create',['uses'=> 'AdminCategoriesController@create', 'as' => 'create'] );
+   Route::post('/store',['uses'=> 'AdminCategoriesController@store', 'as' => 'store'] );
+
 });

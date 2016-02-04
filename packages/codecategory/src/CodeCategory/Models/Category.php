@@ -12,6 +12,7 @@ namespace CodePress\CodeCategory\Models;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Validator;
 
 class Category extends Model implements SluggableInterface
 {
@@ -19,7 +20,7 @@ class Category extends Model implements SluggableInterface
 
     protected $table = "codepress_categories";
 
-    protected $sluggable = [
+   protected $sluggable = [
         'build_from' => 'name',
         'save_to' => 'slug',
         'unique' => true
@@ -31,6 +32,17 @@ class Category extends Model implements SluggableInterface
         'active',
         'parent_id'
     ];
+    private $validator;
+
+    public function setValidator($validator)
+    {
+        $this->validator = $validator;
+    }
+
+    public function getValidator()
+    {
+        return $this->validator;
+    }
 
     /**
      * Power categorize anything, Joker package
@@ -50,6 +62,8 @@ class Category extends Model implements SluggableInterface
     {
         return $this->hasMany(Category::class,'parent_id');
     }
+
+
 
 
 }

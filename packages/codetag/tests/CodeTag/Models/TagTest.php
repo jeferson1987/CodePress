@@ -30,6 +30,7 @@ class TagTest extends AbstractTestCase
 
         $tag = Tag::all()->first();
         $this->assertEquals('Tag 1', $tag->name);
+        $this->assertEquals('tag-1', $tag->slug);
 
 
     }

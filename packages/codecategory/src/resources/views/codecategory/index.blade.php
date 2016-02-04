@@ -5,6 +5,7 @@
     <div class="container">
         <h3>Categories</h3>
     </div>
+    <a href="{{ route('admin.categories.create') }}"> Create Category</a>
 
     <table class="table-bordered table-responsive col-md-12">
         <thead>
