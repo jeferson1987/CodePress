@@ -6,7 +6,7 @@
  * Time: 09:19
  */
 
-namespace CodePress\CodeCategory\Tests;
+namespace CodePress\CodeDatabase\Tests;
 
 
 use Orchestra\Testbench\TestCase;
@@ -19,23 +19,11 @@ abstract class AbstractTestCase extends TestCase
     public function migrate()
     {
         $this->artisan('migrate',[
-            '--realpath' => realpath(__DIR__.'/../src/resources/migrations')
+            '--realpath' => realpath(__DIR__.'/resources/migrations')
         ]);
 
     }
 
-    /**
-     *
-    generating provider to find matching sluggable package
-     * @param $app
-     * @return array
-     */
-    public function getPackageProviders($app)
-    {
-        return [
-            \Cviebrock\EloquentSluggable\SluggableServiceProvider::class
-        ];
-    }
     /**
      * Define environment setup.
      *
@@ -52,6 +40,8 @@ abstract class AbstractTestCase extends TestCase
             'prefix'   => '',
         ]);
     }
+
+
 
 
 }
